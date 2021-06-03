@@ -1,0 +1,388 @@
+Archive member included to satisfy reference by file (symbol)
+
+../../bsp/libbsp.a(crt0.o)    (_Reset_handler)
+../../bsp/libbsp.a(bsp_init.o)
+                              ../../bsp/libbsp.a(crt0.o) (bsp_init)
+../../bsp/libbsp.a(usart.o)   ../../bsp/libbsp.a(bsp_init.o) (usart_bus_init)
+../../bsp/libbsp.a(gpio.o)    ../../bsp/libbsp.a(bsp_init.o) (gpio_bus_init)
+../../bsp/libbsp.a(dev.o)     ../../bsp/libbsp.a(usart.o) (register_dev)
+../../bsp/libg.a(lib_a-errno.o)
+                              ../../bsp/libbsp.a(dev.o) (__errno)
+../../bsp/libg.a(lib_a-impure.o)
+                              ../../bsp/libg.a(lib_a-errno.o) (_impure_ptr)
+../../bsp/libg.a(lib_a-memcmp.o)
+                              ../../bsp/libbsp.a(dev.o) (memcmp)
+../../bsp/libg.a(lib_a-strlen.o)
+                              ../../bsp/libbsp.a(dev.o) (strlen)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x0000000020000000 0x0000000000020000
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000010                _stack_size = 0x10
+                0x0000000020020000                _ram_limit = (ORIGIN (RAM) + LENGTH (RAM))
+
+.text           0x0000000020000000      0xeb8
+ *(.startup*)
+ .startup       0x0000000020000000      0x1c4 ../../bsp/libbsp.a(crt0.o)
+                0x0000000020000000                _isr_vector
+                0x0000000020000008                _excep_handlers
+                0x0000000020000040                _interrupt_handlers
+                0x00000000200001c4                _text = .
+ *(.isr_vector)
+ *(.text*)
+ .text          0x00000000200001c4       0xc8 main.o
+                0x00000000200001c4                gpio_init
+                0x0000000020000204                led_on
+                0x0000000020000224                led_off
+                0x0000000020000244                pause
+                0x0000000020000272                main
+ *fill*         0x000000002000028c        0x4 
+ .text          0x0000000020000290       0x38 ../../bsp/libbsp.a(crt0.o)
+                0x0000000020000290                _Reset_handler
+                0x00000000200002a0                _start
+                0x00000000200002bc                _CAN2_RX1_handler
+                0x00000000200002bc                _DMA2_Stream2_handler
+                0x00000000200002bc                _CAN2_SCE_handler
+                0x00000000200002bc                _FMC_handler
+                0x00000000200002bc                _OTG_FS_handler
+                0x00000000200002bc                _QuadSPI_handler
+                0x00000000200002bc                _CAN1_TX_handler
+                0x00000000200002bc                _I2C2_EV_handler
+                0x00000000200002bc                _FMPI2C1_error_handler
+                0x00000000200002bc                _TIM1_BRK_TIM9_handler
+                0x00000000200002bc                _EXTI3_handler
+                0x00000000200002bc                _OTG_HS_handler
+                0x00000000200002bc                _FPU_handler
+                0x00000000200002bc                _DMA2_Stream6_handler
+                0x00000000200002bc                _EXTI0_handler
+                0x00000000200002bc                _SPDIF_Rx_handler
+                0x00000000200002bc                _DMA2_Stream5_handler
+                0x00000000200002bc                _I2C3_EV_handler
+                0x00000000200002bc                _USART2_handler
+                0x00000000200002bc                _OTG_HS_EP1_IN_handler
+                0x00000000200002bc                _DMA2_Stream7_handler
+                0x00000000200002bc                _USART6_handler
+                0x00000000200002bc                _I2C3_ER_handler
+                0x00000000200002bc                _TIM2_handler
+                0x00000000200002bc                _TIM1_CC_handler
+                0x00000000200002bc                _UsageFault_handler
+                0x00000000200002bc                _RCC_handler
+                0x00000000200002bc                _SDIO_handler
+                0x00000000200002bc                _EXTI2_handler
+                0x00000000200002bc                _DebugMonitor_handler
+                0x00000000200002bc                _TIM8_CC_handler
+                0x00000000200002bc                _SPI3_handler
+                0x00000000200002bc                _TIM1_TRG_COM_TIM11_handler
+                0x00000000200002bc                _DMA2_Stream4_handler
+                0x00000000200002bc                _OTG_HS_EP1_OUT_handler
+                0x00000000200002bc                _USART1_handler
+                0x00000000200002bc                _TIM3_handler
+                0x00000000200002bc                _CAN1_SCE_handler
+                0x00000000200002bc                _TIM4_handler
+                0x00000000200002bc                _DMA1_Stream4_handler
+                0x00000000200002bc                _MemManage_handler
+                0x00000000200002bc                _EXTI15_10_handler
+                0x00000000200002bc                _OTG_FS_WKUP_handler
+                0x00000000200002bc                _RTC_WKUP_handler
+                0x00000000200002bc                _I2C2_ER_handler
+                0x00000000200002bc                _CAN1_RX1_handler
+                0x00000000200002bc                _DMA2_Stream0_handler
+                0x00000000200002bc                _CAN2_TX_handler
+                0x00000000200002bc                _DMA1_Stream0_handler
+                0x00000000200002bc                _UART4_handler
+                0x00000000200002bc                _EXTI4_handler
+                0x00000000200002bc                _TIM7_handler
+                0x00000000200002bc                _USART3_handler
+                0x00000000200002bc                _FMPI2C1_handler
+                0x00000000200002bc                _SAI1_handler
+                0x00000000200002bc                _DMA1_Stream6_handler
+                0x00000000200002bc                _DMA2_Stream1_handler
+                0x00000000200002bc                _Systick_handler
+                0x00000000200002bc                _TIM6_DAC_handler
+                0x00000000200002bc                _I2C1_ER_handler
+                0x00000000200002bc                _DMA1_Stream3_handler
+                0x00000000200002bc                _DMA2_Stream3_handler
+                0x00000000200002bc                _TIM1_UP_TIM10_handler
+                0x00000000200002bc                _HDMI_CEC_handler
+                0x00000000200002bc                default_Handler
+                0x00000000200002bc                _OTG_HS_WKUP_handler
+                0x00000000200002bc                _CAN1_RX0_handler
+                0x00000000200002bc                _DMA1_Stream2_handler
+                0x00000000200002bc                _SVCall_handler
+                0x00000000200002bc                _TIM8_UP_TIM13_handler
+                0x00000000200002bc                _DCMI_handler
+                0x00000000200002bc                _HardFault_handler
+                0x00000000200002bc                _NMI_handler
+                0x00000000200002bc                _DMA1_Stream5_handler
+                0x00000000200002bc                _EXTI1_handler
+                0x00000000200002bc                _SPI1_handler
+                0x00000000200002bc                _DMA1_Stream1_handler
+                0x00000000200002bc                _PendSV_handler
+                0x00000000200002bc                _ADC_handler
+                0x00000000200002bc                _RTC_Alarm_handler
+                0x00000000200002bc                _CAN2_RX0_handler
+                0x00000000200002bc                _EXTI9_5_handler
+                0x00000000200002bc                _I2C1_EV_handler
+                0x00000000200002bc                _TIM5_handler
+                0x00000000200002bc                _WWDG_handler
+                0x00000000200002bc                _UART5_handler
+                0x00000000200002bc                _TIM8_TRG_COM_TIM14_handler
+                0x00000000200002bc                _SPI4_handler
+                0x00000000200002bc                _SAI2_handler
+                0x00000000200002bc                _SPI2_handler
+                0x00000000200002bc                _BusFault_handler
+                0x00000000200002bc                _PVD_handler
+                0x00000000200002bc                _TAMP_STAMP_handler
+                0x00000000200002bc                _DMA1_Stream7_handler
+                0x00000000200002bc                _TIM8_BRK_TIM12_handler
+                0x00000000200002bc                _FLASH_handler
+ .text          0x00000000200002c8       0x64 ../../bsp/libbsp.a(bsp_init.o)
+                0x00000000200002c8                bus_init
+                0x00000000200002d8                io_init
+                0x000000002000031c                bsp_init
+ .text          0x000000002000032c      0x3bc ../../bsp/libbsp.a(usart.o)
+                0x000000002000032c                usart_bus_init
+                0x0000000020000370                usart_init
+                0x00000000200005ec                usart_send_byte
+                0x0000000020000634                usart_send
+                0x0000000020000670                usart_receive_byte
+                0x00000000200006ac                usart_receive
+ .text          0x00000000200006e8      0x398 ../../bsp/libbsp.a(gpio.o)
+                0x00000000200006e8                gpio_bus_init
+                0x0000000020000710                gpio_set_mode
+                0x0000000020000790                gpio_set_output_type
+                0x0000000020000814                gpio_set_output_speed
+                0x0000000020000894                gpio_set_pull_up_pull_down
+                0x0000000020000914                gpio_set_pin
+                0x0000000020000948                gpio_clear_pin
+                0x0000000020000980                gpio_set_function_pin
+                0x0000000020000a30                gpio_get_input_pin
+                0x0000000020000a58                gpio_get_output_pin
+ .text          0x0000000020000a80      0x260 ../../bsp/libbsp.a(dev.o)
+                0x0000000020000a80                register_dev
+                0x0000000020000b70                get_dev
+                0x0000000020000b9c                find_dev
+                0x0000000020000bfc                get_fd
+                0x0000000020000c4c                release_fd
+                0x0000000020000c6c                redirect_fd
+ .text          0x0000000020000ce0        0xc ../../bsp/libg.a(lib_a-errno.o)
+                0x0000000020000ce0                __errno
+ .text          0x0000000020000cec        0x0 ../../bsp/libg.a(lib_a-impure.o)
+ .text          0x0000000020000cec       0x60 ../../bsp/libg.a(lib_a-memcmp.o)
+                0x0000000020000cec                memcmp
+ *fill*         0x0000000020000d4c       0x34 
+ .text          0x0000000020000d80       0xdc ../../bsp/libg.a(lib_a-strlen.o)
+                0x0000000020000d80                strlen
+ *(.rodata*)
+ .rodata        0x0000000020000e5c        0xc ../../bsp/libbsp.a(bsp_init.o)
+ .rodata        0x0000000020000e68       0x24 ../../bsp/libbsp.a(usart.o)
+ .rodata        0x0000000020000e8c       0x1c ../../bsp/libbsp.a(gpio.o)
+ .rodata        0x0000000020000ea8        0xa ../../bsp/libbsp.a(dev.o)
+ *fill*         0x0000000020000eb2        0x2 
+ .rodata        0x0000000020000eb4        0x4 ../../bsp/libg.a(lib_a-impure.o)
+                0x0000000020000eb4                _global_impure_ptr
+ *(.init)
+ *(.fini)
+                0x0000000020000eb8                _etext = .
+
+.glue_7         0x0000000020000eb8        0x0
+ .glue_7        0x0000000020000eb8        0x0 linker stubs
+
+.glue_7t        0x0000000020000eb8        0x0
+ .glue_7t       0x0000000020000eb8        0x0 linker stubs
+
+.vfp11_veneer   0x0000000020000eb8        0x0
+ .vfp11_veneer  0x0000000020000eb8        0x0 linker stubs
+
+.v4_bx          0x0000000020000eb8        0x0
+ .v4_bx         0x0000000020000eb8        0x0 linker stubs
+
+.iplt           0x0000000020000eb8        0x0
+ .iplt          0x0000000020000eb8        0x0 main.o
+
+.rel.dyn        0x0000000020000eb8        0x0
+ .rel.iplt      0x0000000020000eb8        0x0 main.o
+
+.rodata         0x0000000020000eb8        0x0
+                0x0000000020000eb8                _rodata_start = .
+ *(.rodata*)
+                0x0000000020000eb8                _rodata_end = .
+
+.data           0x0000000020000eb8      0x6d8
+                0x0000000020000eb8                _data_start = .
+ *(.data*)
+ .data          0x0000000020000eb8       0x20 main.o
+                0x0000000020000eb8                gpioa_moder
+                0x0000000020000ebc                rcc_ahb1enr
+                0x0000000020000ec0                gpioa_bsrr
+                0x0000000020000ec4                rcc_apb1enr
+                0x0000000020000ec8                gpioa_moder_mask
+                0x0000000020000ecc                rcc_ahb1enr_mask
+                0x0000000020000ed0                gpioa_bsrr_set_mask
+                0x0000000020000ed4                gpioa_bsrr_reset_mask
+ .data          0x0000000020000ed8        0x0 ../../bsp/libbsp.a(crt0.o)
+ .data          0x0000000020000ed8        0x0 ../../bsp/libbsp.a(bsp_init.o)
+ .data          0x0000000020000ed8        0x0 ../../bsp/libbsp.a(usart.o)
+ .data          0x0000000020000ed8        0x0 ../../bsp/libbsp.a(gpio.o)
+ .data          0x0000000020000ed8      0x284 ../../bsp/libbsp.a(dev.o)
+ .data          0x000000002000115c        0x0 ../../bsp/libg.a(lib_a-errno.o)
+ *fill*         0x000000002000115c        0x4 
+ .data          0x0000000020001160      0x430 ../../bsp/libg.a(lib_a-impure.o)
+                0x0000000020001160                _impure_ptr
+ .data          0x0000000020001590        0x0 ../../bsp/libg.a(lib_a-memcmp.o)
+ .data          0x0000000020001590        0x0 ../../bsp/libg.a(lib_a-strlen.o)
+                0x0000000020001590                _data_end = .
+
+.igot.plt       0x0000000020001590        0x0
+ .igot.plt      0x0000000020001590        0x0 main.o
+
+.bss            0x0000000020001590        0x0
+                0x0000000020001590                _bss_start = .
+ *(.bss*)
+ .bss           0x0000000020001590        0x0 main.o
+ .bss           0x0000000020001590        0x0 ../../bsp/libbsp.a(crt0.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libbsp.a(bsp_init.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libbsp.a(usart.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libbsp.a(gpio.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libbsp.a(dev.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libg.a(lib_a-errno.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libg.a(lib_a-impure.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libg.a(lib_a-memcmp.o)
+ .bss           0x0000000020001590        0x0 ../../bsp/libg.a(lib_a-strlen.o)
+                0x0000000020001590                _bss_end = .
+
+.ARM.attributes
+                0x0000000000000000       0x31
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x0000000000000000       0x33 main.o
+ .ARM.attributes
+                0x0000000000000033       0x21 ../../bsp/libbsp.a(crt0.o)
+ .ARM.attributes
+                0x0000000000000054       0x33 ../../bsp/libbsp.a(bsp_init.o)
+ .ARM.attributes
+                0x0000000000000087       0x33 ../../bsp/libbsp.a(usart.o)
+ .ARM.attributes
+                0x00000000000000ba       0x33 ../../bsp/libbsp.a(gpio.o)
+ .ARM.attributes
+                0x00000000000000ed       0x33 ../../bsp/libbsp.a(dev.o)
+ .ARM.attributes
+                0x0000000000000120       0x2e ../../bsp/libg.a(lib_a-errno.o)
+ .ARM.attributes
+                0x000000000000014e       0x2e ../../bsp/libg.a(lib_a-impure.o)
+ .ARM.attributes
+                0x000000000000017c       0x2e ../../bsp/libg.a(lib_a-memcmp.o)
+ .ARM.attributes
+                0x00000000000001aa       0x1c ../../bsp/libg.a(lib_a-strlen.o)
+LOAD main.o
+LOAD ../../bsp/libbsp.a
+LOAD ../../bsp/libg.a
+LOAD /usr/lib/gcc/arm-none-eabi/6.3.1/libgcc.a
+LOAD ../../bsp/libbsp.a
+OUTPUT(main.elf elf32-littlearm)
+
+.debug_info     0x0000000000000000     0x5a5a
+ .debug_info    0x0000000000000000      0x197 main.o
+ .debug_info    0x0000000000000197       0x5f ../../bsp/libbsp.a(crt0.o)
+ .debug_info    0x00000000000001f6      0x974 ../../bsp/libbsp.a(bsp_init.o)
+ .debug_info    0x0000000000000b6a     0x145b ../../bsp/libbsp.a(usart.o)
+ .debug_info    0x0000000000001fc5     0x1028 ../../bsp/libbsp.a(gpio.o)
+ .debug_info    0x0000000000002fed      0xe08 ../../bsp/libbsp.a(dev.o)
+ .debug_info    0x0000000000003df5      0x953 ../../bsp/libg.a(lib_a-errno.o)
+ .debug_info    0x0000000000004748      0x92a ../../bsp/libg.a(lib_a-impure.o)
+ .debug_info    0x0000000000005072      0x9c2 ../../bsp/libg.a(lib_a-memcmp.o)
+ .debug_info    0x0000000000005a34       0x26 ../../bsp/libg.a(lib_a-strlen.o)
+
+.debug_abbrev   0x0000000000000000      0xfb1
+ .debug_abbrev  0x0000000000000000       0xcb main.o
+ .debug_abbrev  0x00000000000000cb       0x14 ../../bsp/libbsp.a(crt0.o)
+ .debug_abbrev  0x00000000000000df      0x1d5 ../../bsp/libbsp.a(bsp_init.o)
+ .debug_abbrev  0x00000000000002b4      0x2c7 ../../bsp/libbsp.a(usart.o)
+ .debug_abbrev  0x000000000000057b      0x248 ../../bsp/libbsp.a(gpio.o)
+ .debug_abbrev  0x00000000000007c3      0x25f ../../bsp/libbsp.a(dev.o)
+ .debug_abbrev  0x0000000000000a22      0x1d6 ../../bsp/libg.a(lib_a-errno.o)
+ .debug_abbrev  0x0000000000000bf8      0x1b8 ../../bsp/libg.a(lib_a-impure.o)
+ .debug_abbrev  0x0000000000000db0      0x1ed ../../bsp/libg.a(lib_a-memcmp.o)
+ .debug_abbrev  0x0000000000000f9d       0x14 ../../bsp/libg.a(lib_a-strlen.o)
+
+.debug_aranges  0x0000000000000000      0x138
+ .debug_aranges
+                0x0000000000000000       0x20 main.o
+ .debug_aranges
+                0x0000000000000020       0x20 ../../bsp/libbsp.a(crt0.o)
+ .debug_aranges
+                0x0000000000000040       0x20 ../../bsp/libbsp.a(bsp_init.o)
+ .debug_aranges
+                0x0000000000000060       0x20 ../../bsp/libbsp.a(usart.o)
+ .debug_aranges
+                0x0000000000000080       0x20 ../../bsp/libbsp.a(gpio.o)
+ .debug_aranges
+                0x00000000000000a0       0x20 ../../bsp/libbsp.a(dev.o)
+ .debug_aranges
+                0x00000000000000c0       0x20 ../../bsp/libg.a(lib_a-errno.o)
+ .debug_aranges
+                0x00000000000000e0       0x18 ../../bsp/libg.a(lib_a-impure.o)
+ .debug_aranges
+                0x00000000000000f8       0x20 ../../bsp/libg.a(lib_a-memcmp.o)
+ .debug_aranges
+                0x0000000000000118       0x20 ../../bsp/libg.a(lib_a-strlen.o)
+
+.debug_line     0x0000000000000000      0xb30
+ .debug_line    0x0000000000000000       0xde main.o
+ .debug_line    0x00000000000000de       0x4a ../../bsp/libbsp.a(crt0.o)
+ .debug_line    0x0000000000000128      0x102 ../../bsp/libbsp.a(bsp_init.o)
+ .debug_line    0x000000000000022a      0x1a3 ../../bsp/libbsp.a(usart.o)
+ .debug_line    0x00000000000003cd      0x15c ../../bsp/libbsp.a(gpio.o)
+ .debug_line    0x0000000000000529      0x1b1 ../../bsp/libbsp.a(dev.o)
+ .debug_line    0x00000000000006da      0x102 ../../bsp/libg.a(lib_a-errno.o)
+ .debug_line    0x00000000000007dc       0xdd ../../bsp/libg.a(lib_a-impure.o)
+ .debug_line    0x00000000000008b9      0x1c8 ../../bsp/libg.a(lib_a-memcmp.o)
+ .debug_line    0x0000000000000a81       0xaf ../../bsp/libg.a(lib_a-strlen.o)
+
+.debug_str      0x0000000000000000     0x103c
+ .debug_str     0x0000000000000000      0x177 main.o
+                                        0x1b4 (size before relaxing)
+ .debug_str     0x0000000000000177      0x486 ../../bsp/libbsp.a(bsp_init.o)
+                                        0x587 (size before relaxing)
+ .debug_str     0x00000000000005fd      0x470 ../../bsp/libbsp.a(usart.o)
+                                        0x9ef (size before relaxing)
+ .debug_str     0x0000000000000a6d      0x148 ../../bsp/libbsp.a(gpio.o)
+                                        0x907 (size before relaxing)
+ .debug_str     0x0000000000000bb5      0x1a0 ../../bsp/libbsp.a(dev.o)
+                                        0x728 (size before relaxing)
+ .debug_str     0x0000000000000d55      0x11f ../../bsp/libg.a(lib_a-errno.o)
+                                        0x5aa (size before relaxing)
+ .debug_str     0x0000000000000e74       0x92 ../../bsp/libg.a(lib_a-impure.o)
+                                        0x598 (size before relaxing)
+ .debug_str     0x0000000000000f06       0x8f ../../bsp/libg.a(lib_a-memcmp.o)
+                                        0x59c (size before relaxing)
+ .debug_str     0x0000000000000f95       0xa7 ../../bsp/libg.a(lib_a-strlen.o)
+
+.comment        0x0000000000000000       0x8a
+ .comment       0x0000000000000000       0x31 main.o
+                                         0x32 (size before relaxing)
+ .comment       0x0000000000000031       0x32 ../../bsp/libbsp.a(bsp_init.o)
+ .comment       0x0000000000000031       0x32 ../../bsp/libbsp.a(usart.o)
+ .comment       0x0000000000000031       0x32 ../../bsp/libbsp.a(gpio.o)
+ .comment       0x0000000000000031       0x32 ../../bsp/libbsp.a(dev.o)
+ .comment       0x0000000000000031       0x59 ../../bsp/libg.a(lib_a-errno.o)
+                                         0x5a (size before relaxing)
+ .comment       0x000000000000008a       0x5a ../../bsp/libg.a(lib_a-impure.o)
+ .comment       0x000000000000008a       0x5a ../../bsp/libg.a(lib_a-memcmp.o)
+
+.debug_frame    0x0000000000000000      0x508
+ .debug_frame   0x0000000000000000       0xb4 main.o
+ .debug_frame   0x00000000000000b4       0x64 ../../bsp/libbsp.a(bsp_init.o)
+ .debug_frame   0x0000000000000118       0xfc ../../bsp/libbsp.a(usart.o)
+ .debug_frame   0x0000000000000214      0x1a4 ../../bsp/libbsp.a(gpio.o)
+ .debug_frame   0x00000000000003b8       0xf4 ../../bsp/libbsp.a(dev.o)
+ .debug_frame   0x00000000000004ac       0x20 ../../bsp/libg.a(lib_a-errno.o)
+ .debug_frame   0x00000000000004cc       0x3c ../../bsp/libg.a(lib_a-memcmp.o)
+
+.debug_loc      0x0000000000000000      0x1db
+ .debug_loc     0x0000000000000000      0x1db ../../bsp/libg.a(lib_a-memcmp.o)
